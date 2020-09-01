@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "Woofing those bugs away",
-      "likes": 0,
+      "likes": 12,
       "image": "./assets/coder-dog.png"
     }
   ],
@@ -22,6 +22,31 @@
       "id": 3,
       "imageId": 1,
       "content": "Woof!"
+    },
+    {
+      "imageId": 1,
+      "content": "aaaa",
+      "id": 4
+    },
+    {
+      "imageId": 1,
+      "content": "bbbbb",
+      "id": 5
+    },
+    {
+      "imageId": 1,
+      "content": "ccc",
+      "id": 6
+    },
+    {
+      "imageId": 1,
+      "content": "d",
+      "id": 7
+    },
+    {
+      "imageId": 1,
+      "content": "ddd",
+      "id": 8
     }
   ]
 }

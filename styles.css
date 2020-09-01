@@ -60,6 +60,8 @@ body {
   background: none;
   transition: color 300ms;
   cursor: pointer;
+  margin: auto;
+  padding-left: 160px
   
   ;
 }
@@ -71,6 +73,7 @@ body {
   background: none;
   transition: color 300ms;
   cursor: pointer;
+  margin: auto;
   outline: none;
 }
 

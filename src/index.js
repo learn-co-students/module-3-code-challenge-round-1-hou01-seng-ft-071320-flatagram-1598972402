@@ -6,13 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
     enableUnlikes()
 })
 
-const imgTitle = document.querySelector("body > div > div > h2")
-const imgSpot = document.querySelector("body > div > div > img")
-const imgLikes = document.querySelector("body > div > div > div > span")
-const imgCommentsUl = document.querySelector("body > div > div > ul")
-const likeButton = document.querySelector("body > div > div > div > button")
-const commentForm = document.querySelector("body > div > div > form")
-const likeSection = document.querySelector("body > div > div > div")
+const imgTitle = document.querySelector(".title")
+const imgSpot = document.querySelector(".image")
+const imgLikes = document.querySelector(".likes")
+const imgCommentsUl = document.querySelector(".comments")
+const likeButton = document.querySelector(".like-button")
+const commentForm = document.querySelector(".comment-form")
+const likeSection = document.querySelector(".likes-section")
 
 const getImage = () => {
     fetch('http://localhost:3000/images/1')
@@ -39,7 +39,8 @@ const showComments = (commentsArray) => {
         imageLi.addEventListener('click', (e) => {
             e.preventDefault()
             let commentId= e.target.dataset.commentId
-            deleteComment(commentId)
+            let target = e.target
+            deleteComment(commentId, target)
         })
 
         imgCommentsUl.append(imageLi)
@@ -75,18 +76,16 @@ const addLikes = (number) => {
     })
     .then(res => res.json())
     .then((image) => {
-        refreshImg(image)
+        refreshLikes(image)
     })
 }
 
-const refreshImg = (singleImage) => {
-    imgTitle.innerText = singleImage.title
-    imgSpot.src = singleImage.image
+const refreshLikes = (singleImage) => {
     imgLikes.innerText = `${singleImage.likes} likes`
 }
 
 const enablePostComment = () => {
-    const commentField = document.querySelector("body > div > div > form > input")
+    const commentField = document.querySelector(".comment-input")
 
     commentForm.addEventListener('submit', (e) => {
         e.preventDefault()
@@ -112,7 +111,6 @@ const createComment = (commentToBePosted) => {
     .then((comment) => {
         addComment(comment)
     })
-
 }
 
 const addComment = (newestComment) => {
@@ -123,12 +121,11 @@ const addComment = (newestComment) => {
     imageLi.addEventListener('click', (e) => {
         e.preventDefault()
         let commentId= e.target.dataset.commentId
-        deleteComment(commentId)
+        let target = e.target
+        deleteComment(commentId, target)
     })
-
     imgCommentsUl.append(imageLi)
 }
-
 
 const enableUnlikes = () => {
     const unlikeButton = document.createElement('button')
@@ -163,15 +160,15 @@ const subtractLikes = (number) => {
     })
     .then(res => res.json())
     .then((image) => {
-        refreshImg(image)
+        refreshLikes(image)
     })
 }
 
-const deleteComment = (id) => {
+const deleteComment = (id, target) => {
 
     fetch(`http://localhost:3000/comments/${id}`, {
         method: 'delete'
     })
     .then(res => res.json())
-    .then(getImage())
+    .then(target.remove())
 }

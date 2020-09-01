@@ -3,45 +3,30 @@
     {
       "id": 1,
       "title": "Woofing those bugs away",
-      "likes": 2,
+      "likes": 5,
       "image": "./assets/coder-dog.png"
     }
   ],
   "comments": [
-    {
-      "id": 1,
-      "imageId": 1,
-      "content": "What a cute dog!"
-    },
     {
       "id": 2,
       "imageId": 1,
       "content": "He's got a nose for bugs!"
     },
     {
-      "id": 3,
       "imageId": 1,
-      "content": "Woof!"
+      "content": "So fluffyyyy!",
+      "id": 3
     },
     {
       "imageId": 1,
-      "content": "hay",
+      "content": "Wow!",
       "id": 4
     },
     {
       "imageId": 1,
-      "content": "this is awesome",
+      "content": "Hiiii",
       "id": 5
-    },
-    {
-      "imageId": 1,
-      "content": "test",
-      "id": 6
-    },
-    {
-      "imageId": 1,
-      "content": "testing",
-      "id": 7
     }
   ]
 }
